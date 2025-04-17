@@ -4,6 +4,6 @@ python-telegram-bot = "^20.5"
 python-dotenv = "^1.0.0"
 pytesseract = "^0.3.10"
 pillow = "^10.3.0"
-opencv-python = "^4.9.0.80"
+opencv-python-headless = "^4.9.0.80"  # Use headless version for server environments
 pdf2image = "^1.17.0"
 sqlalchemy = "^2.0.29"
