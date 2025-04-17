@@ -1,6 +1,5 @@
-from sqlalchemy import create_engine, Column, Integer, String, Date, Time, JSON
-from sqlalchemy.orm import declarative_base, sessionmaker
-import os
+from sqlalchemy import Column, Integer, String, Date, Time, JSON
+from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
@@ -26,11 +25,3 @@ class BusRoute(Base):
     route_number = Column(String)
     name = Column(String)
     stations = Column(JSON)
-
-def init_db():
-    database_url = os.getenv("DATABASE_URL", "sqlite:///schedules.db")
-    engine = create_engine(database_url)
-    Base.metadata.create_all(engine)
-    return sessionmaker(bind=engine)
-
-Session = init_db()
